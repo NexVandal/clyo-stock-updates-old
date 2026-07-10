@@ -34,3 +34,7 @@ Le dépôt ou, au minimum, les Releases et `version.json` doivent être accessib
 
 ## Données utilisateurs
 L'installateur conserve les données métier placées dans `%ProgramData%\CLYO Stock Atelier`. Les fichiers du programme sont remplacés dans le dossier d'installation, sans supprimer le référentiel ni les documents utilisateurs.
+
+## Correctif PyInstaller
+
+Le script `build_installer_windows.ps1` installe et vérifie explicitement PyInstaller dans l'environnement virtuel `.venv`. Chaque commande externe est contrôlée : le build s'arrête immédiatement si l'installation d'une dépendance échoue.

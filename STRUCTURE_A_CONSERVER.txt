@@ -1,0 +1,10 @@
+STRUCTURE À CONSERVER SUR GITHUB
+
+.github/workflows/build-windows.yml
+.github/workflows/release-windows.yml
+assets/...
+templates/...
+Tous les autres fichiers restent à la racine.
+
+IMPORTANT : ne sélectionnez pas les fichiers un par un dans l’interface GitHub.
+Utilisez Git, GitHub Desktop, ou glissez le dossier complet afin de préserver les chemins relatifs.
