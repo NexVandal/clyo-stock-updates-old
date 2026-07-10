@@ -1,7 +1,5 @@
 #define MyAppName "CLYO Stock Atelier"
-#ifndef MyAppVersion
-  #define MyAppVersion "8.3.11"
-#endif
+#define MyAppVersion "9.0.0"
 #define MyAppPublisher "CLYO Systems"
 #define MyAppExeName "CLYO_Stock.exe"
 
@@ -47,12 +45,12 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDi
 Filename: "{app}\{#MyAppExeName}"; Description: "Lancer {#MyAppName}"; Flags: nowait shellexec skipifdoesntexist
 
 [UninstallRun]
-; V8.3.11 : une désinstallation volontaire marque la prochaine installation comme nouvelle.
+; V8.2.9 : une désinstallation volontaire marque la prochaine installation comme nouvelle.
 ; Les données métier sont conservées, mais le choix de base sera redemandé.
 Filename: "{sys}\WindowsPowerShell\v1.0\powershell.exe"; Parameters: "-NoProfile -ExecutionPolicy Bypass -Command ""$p=Join-Path $env:ProgramData 'CLYO Stock Atelier'; New-Item -ItemType Directory -Force -Path $p | Out-Null; Set-Content -Path (Join-Path $p 'fresh_install_required.flag') -Value 'uninstalled' -Encoding UTF8"""; Flags: runhidden; RunOnceId: "CLYOStockMarkFreshInstall"
 
 [UninstallDelete]
-; V8.3.11 : supprimer uniquement les fichiers qui mémorisent le choix de base.
+; V8.2.9 : supprimer uniquement les fichiers qui mémorisent le choix de base.
 ; Les données métier dans ProgramData ne sont volontairement pas supprimées.
 ; Elles restent en place pour éviter toute perte de référentiel, Excel, SQLite, documents ou historique.
 Type: files; Name: "{commonappdata}\CLYO Stock Atelier\nexvandal_active_data.json"

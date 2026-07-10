@@ -1,12 +1,13 @@
 {
-  "latest_version": "8.3.11",
-  "installer_url": "https://github.com/NexVandal/clyo-stock-updates-2/releases/download/v8.3.11/CLYO_Stock_Atelier_Setup_8.3.11.exe",
+  "latest_version": "9.0.0",
+  "installer_url": "https://github.com/NexVandal/clyo-stock-updates-2/releases/download/v9.0.0/CLYO_Stock_Atelier_Setup_9.0.0.exe",
   "asset_type": "installer_exe",
   "mandatory": false,
   "changelog": [
-    "Suppression définitive des zones à cocher dans Identifiants > Gérer les accès : remplacement par boutons AUTORISÉ / BLOQUÉ.",
-    "Suppression complète du verrou Superadmin sur Apparence : l’onglet est visible et ouvrable par tous les profils.",
-    "Correction du changement de rôle d’un identifiant : l’endpoint /api/users/{id} reçoit correctement la requête.",
-    "Correction du contraste des cartes catégories : texte clair sur fond sombre, comme dans le volet gauche."
+    "Correction de la navigation : un seul module est affiché à la fois.",
+    "Apparence accessible à tous les profils, sans verrou utilisateur.",
+    "Suppression complète de Gérer les accès dans Identifiants.",
+    "Contraste automatique des titres et compteurs des catégories dans Stock et Vente.",
+    "Suppression du réglage manuel de couleur du texte des catégories et conservation du thème clair."
   ]
 }

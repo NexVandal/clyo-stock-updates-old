@@ -14332,7 +14332,7 @@ except Exception as _migrate_startup_exc:
     if not DATA_DIR_STARTUP_ERROR:
         DATA_DIR_STARTUP_ERROR = f"Migration des anciennes données ignorée au démarrage : {_migrate_startup_exc}"
 
-APP_VERSION = "8.3.11"
+APP_VERSION = "8.2.9"
 APP_NAME = "Clyo Stock Atelier"
 UPDATE_MANIFEST_URL = "https://raw.githubusercontent.com/NexVandal/clyo-stock-updates-2/main/version.json"
 
@@ -37601,7 +37601,7 @@ except Exception as exc:
 
 
 # --- V8.0.6 : correctif updater ZIP/GitHub + création base setup ---
-APP_VERSION = "8.3.11"
+APP_VERSION = "8.2.9"
 try:
     app.version = APP_VERSION
 except Exception:
@@ -38716,7 +38716,7 @@ except Exception as exc:
 
 
 # --- V8.0.6 : menu simplifié, clients sans colonne Action, dashboard enrichi ---
-APP_VERSION = "8.3.11"
+APP_VERSION = "8.2.9"
 try:
     app.version = APP_VERSION
 except Exception:
@@ -38829,7 +38829,7 @@ except Exception as exc:
 
 
 # --- V8.0.6 : images action matériel, CRM cliquable, lien tuto modèles ---
-APP_VERSION = "8.3.11"
+APP_VERSION = "8.2.9"
 try:
     app.version = APP_VERSION
 except Exception:
@@ -41677,7 +41677,7 @@ except Exception as exc:
 
 
 # --- V8.1.0 : profils simplifiés, mot de passe temporaire, langue dans Profil et rafraîchissement temps réel ---
-APP_VERSION = "8.3.11"
+APP_VERSION = "8.2.9"
 try:
     app.version = APP_VERSION
 except Exception:
@@ -42086,7 +42086,7 @@ def preserve_active_base_before_update_v814(reason: str = "update", manifest: di
     return payload
 
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.2.9"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -42302,7 +42302,7 @@ except Exception as exc:
     safe_log(f"Injection responsive V8.1.9 impossible : {exc}")
 
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.2.9"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -42311,7 +42311,7 @@ except Exception:
 # Objectif : ne plus afficher une page Connexion vide si l'ancienne base
 # enregistrée est absente, inaccessible, vide ou sans profils utilisateur.
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.2.9"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -42557,7 +42557,7 @@ except Exception as exc:
 # OperationalError 1170 "BLOB/TEXT column 'sheet_name' used in key specification without a key length"
 # Règle : une colonne participant à une PRIMARY KEY / index doit être VARCHAR(191), pas LONGTEXT.
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.2.9"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -42715,7 +42715,7 @@ def migrate_current_database_to_sql_v810() -> dict[str, Any]:
 # - mise à jour par-dessus une version existante : conserver la base active locale / NAS / SQL ;
 # - désinstallation puis réinstallation : redemander le choix de base, sans supprimer les données métier.
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.2.9"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -42882,7 +42882,7 @@ def api_reset_base_choice_v818(request: Request) -> dict[str, Any]:
 
 # --- V8.1.9 : importer une ancienne base locale/NAS vers MariaDB sans ressaisie ---
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.2.9"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -43311,7 +43311,7 @@ except Exception as exc:
 
 # --- V8.2.3 : activation complète du mode SQL/MariaDB pour lectures et écritures ---
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.2.9"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -43717,7 +43717,7 @@ except Exception:
 
 # --- V8.2.3 : base SQL centrale existante pour tous les postes ---
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.2.9"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -43773,7 +43773,7 @@ except Exception:
 
 # --- V8.2.3 : sécurité des mots de passe + écritures SQL multi-utilisateurs ---
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.2.9"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -44241,7 +44241,7 @@ except Exception:
 
 # --- V8.2.3 : démarrage SQL uniquement + conservation stricte de l'adresse MariaDB saisie ---
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.2.9"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -44454,7 +44454,7 @@ except Exception:
     pass
 
 
-# --- V8.3.11 : Connexion MariaDB simplifiée avec logo ---
+# --- V8.2.9 : Connexion MariaDB simplifiée avec logo ---
 SQL_DEFAULT_PORT_V824 = 5936
 SQL_DEFAULT_DATABASE_V824 = "clyo_stock_atelier"
 SQL_DEFAULT_USER_V824 = "clyo_stock"
@@ -44490,7 +44490,7 @@ def _sql_fixed_defaults_v824() -> dict[str, Any]:
 
 
 def load_sql_config_v810(include_password: bool = False) -> dict[str, Any]:  # type: ignore[override]
-    # V8.3.11 : l'utilisateur ne saisit que l'IP MariaDB + le mot de passe.
+    # V8.2.9 : l'utilisateur ne saisit que l'IP MariaDB + le mot de passe.
     try:
         if SQL_CONFIG_PATH_V810.exists():
             data = json.loads(SQL_CONFIG_PATH_V810.read_text(encoding="utf-8", errors="ignore") or "{}")
@@ -44518,7 +44518,7 @@ def load_sql_config_v810(include_password: bool = False) -> dict[str, Any]:  # t
 
 
 def save_sql_config_v810(payload: dict[str, Any], *, test_ok: bool | None = None, enabled: bool | None = None) -> dict[str, Any]:  # type: ignore[override]
-    # V8.3.11 : sauvegarde seulement l'hôte et le mot de passe, avec paramètres SQL fixes.
+    # V8.2.9 : sauvegarde seulement l'hôte et le mot de passe, avec paramètres SQL fixes.
     previous = load_sql_config_v810(include_password=True)
     if not isinstance(payload, dict):
         payload = {}
@@ -44615,14 +44615,14 @@ except Exception:
     pass
 
 try:
-    RELEASE_NOTES.append("SQL V8.3.11 : page MariaDB simplifiée avec logo, saisie IP + mot de passe uniquement, port/base/utilisateur internes.")
+    RELEASE_NOTES.append("SQL V8.2.9 : page MariaDB simplifiée avec logo, saisie IP + mot de passe uniquement, port/base/utilisateur internes.")
 except Exception:
     pass
 
 
-# --- V8.3.11 : démarrage fiable SQL uniquement, sans blocage MariaDB lourd ---
+# --- V8.2.9 : démarrage fiable SQL uniquement, sans blocage MariaDB lourd ---
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.2.9"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -44649,7 +44649,7 @@ def _sql_config_present_v825() -> tuple[bool, str]:
 
 
 def setup_choice_required() -> bool:  # type: ignore[override]
-    """V8.3.11 : SQL uniquement.
+    """V8.2.9 : SQL uniquement.
 
     La page de connexion MariaDB s'affiche seulement si la configuration SQL
     locale est absente/incomplète. La disponibilité du NAS n'est plus testée sur
@@ -44693,7 +44693,7 @@ def _sql_connect_kwargs_v825(cfg: dict[str, Any], *, with_database: bool = True,
 
 
 def sql_connect_v810(config: dict[str, Any] | None = None, *, with_database: bool = True):  # type: ignore[override]
-    """V8.3.11 : connexion MariaDB avec timeouts plus courts et message clair.
+    """V8.2.9 : connexion MariaDB avec timeouts plus courts et message clair.
 
     Objectif : ne plus laisser l'application attendre 30 secondes au démarrage
     si le NAS ne répond pas ou si une requête reste bloquée.
@@ -44778,7 +44778,7 @@ def _startup_v825_light() -> None:
     local de répondre et déclenchait le message 127.0.0.1:8080.
     """
     try:
-        safe_log("V8.3.11 : démarrage léger SQL uniquement, aucune migration lourde au startup.")
+        safe_log("V8.2.9 : démarrage léger SQL uniquement, aucune migration lourde au startup.")
     except Exception:
         pass
 
@@ -44789,18 +44789,18 @@ try:
     app.add_event_handler("startup", _startup_v825_light)
 except Exception as exc:
     try:
-        safe_log(f"Startup léger V8.3.11 non appliqué : {exc}")
+        safe_log(f"Startup léger V8.2.9 non appliqué : {exc}")
     except Exception:
         pass
 
 try:
-    RELEASE_NOTES.append("V8.3.11 : démarrage SQL léger, suppression des blocages au startup et chargement rapide des profils MariaDB.")
+    RELEASE_NOTES.append("V8.2.9 : démarrage SQL léger, suppression des blocages au startup et chargement rapide des profils MariaDB.")
 except Exception:
     pass
 
-# --- V8.3.11 : correctifs dessin, copier/coller, apparence utilisateur et historique MariaDB ---
+# --- V8.2.9 : correctifs dessin, copier/coller, apparence utilisateur et historique MariaDB ---
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.2.9"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -44833,7 +44833,7 @@ def repair_sql_schema_v826() -> None:
                 pass
     except Exception as exc:
         try:
-            safe_log(f"Réparation SQL V8.3.11 incomplète : {exc}")
+            safe_log(f"Réparation SQL V8.2.9 incomplète : {exc}")
         except Exception:
             pass
 
@@ -44858,7 +44858,7 @@ try:
     _SqlCompatConnectionV820._translate_sql = _translate_sql_v826
 except Exception as exc:
     try:
-        safe_log(f"Patch SQL translate V8.3.11 non appliqué : {exc}")
+        safe_log(f"Patch SQL translate V8.2.9 non appliqué : {exc}")
     except Exception:
         pass
 
@@ -44950,7 +44950,7 @@ def _load_user_ui_settings_v826(user: dict[str, Any] | None) -> dict[str, Any]:
                 return _sanitize_ui_settings_dict(data)
     except Exception as exc:
         try:
-            safe_log(f"Lecture apparence utilisateur V8.3.11 impossible : {exc}")
+            safe_log(f"Lecture apparence utilisateur V8.2.9 impossible : {exc}")
         except Exception:
             pass
     return load_ui_settings()
@@ -45120,12 +45120,12 @@ try:
         INDEX_HTML = INDEX_HTML.replace("</body>", V826_FRONTEND_PATCH + "\n</body>")
 except Exception as exc:
     try:
-        safe_log(f"Injection front V8.3.11 impossible : {exc}")
+        safe_log(f"Injection front V8.2.9 impossible : {exc}")
     except Exception:
         pass
 
 try:
-    RELEASE_NOTES.append("V8.3.11 : historique matériel MariaDB corrigé, copier-coller autorisé, onglet Dessins visible et apparence personnelle appliquée à tout le site.")
+    RELEASE_NOTES.append("V8.2.9 : historique matériel MariaDB corrigé, copier-coller autorisé, onglet Dessins visible et apparence personnelle appliquée à tout le site.")
 except Exception:
     pass
 
@@ -45170,18 +45170,18 @@ try:
         INDEX_HTML = INDEX_HTML.replace("</body>", V827_FRONTEND_PATCH + "\n</body>")
 except Exception as exc:
     try:
-        safe_log(f"Injection front V8.3.11 impossible : {exc}")
+        safe_log(f"Injection front V8.2.9 impossible : {exc}")
     except Exception:
         pass
 
 try:
-    RELEASE_NOTES.append("V8.3.11 : champ mot de passe libre, aperçu visuel des couleurs et personnalisation complète du menu latéral dans Apparence.")
+    RELEASE_NOTES.append("V8.2.9 : champ mot de passe libre, aperçu visuel des couleurs et personnalisation complète du menu latéral dans Apparence.")
 except Exception:
     pass
 
-# --- V8.3.11 : profils en modale, modèles sans colonne action, apparence cartes, MDP libre, notes version ---
+# --- V8.2.9 : profils en modale, modèles sans colonne action, apparence cartes, MDP libre, notes version ---
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.2.9"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -45202,10 +45202,10 @@ try:
 except Exception:
     pass
 
-# V8.3.11 : on conserve un mot de passe visible pour le superadmin tout en gardant le hash technique.
+# V8.2.9 : on conserve un mot de passe visible pour le superadmin tout en gardant le hash technique.
 # Note : la colonne password_plain n'est pas destinée à l'authentification ; l'authentification reste basée sur password_hash.
 def _migrate_passwords_to_hashes_v822() -> dict[str, Any]:  # type: ignore[override]
-    """V8.3.11 : ne plus effacer password_plain pour que le superadmin puisse voir / gérer les mots de passe."""
+    """V8.2.9 : ne plus effacer password_plain pour que le superadmin puisse voir / gérer les mots de passe."""
     try:
         with db() as conn:
             cols = _ensure_password_security_columns_v822(conn)
@@ -45234,7 +45234,7 @@ def _migrate_passwords_to_hashes_v822() -> dict[str, Any]:  # type: ignore[overr
                         pass
             return {"status": "ok", "plaintext_kept_for_superadmin": True, "filled_known_passwords": filled}
     except Exception as exc:
-        safe_log(f"Migration mots de passe visible V8.3.11 impossible : {exc}")
+        safe_log(f"Migration mots de passe visible V8.2.9 impossible : {exc}")
     return {"status": "partial", "plaintext_kept_for_superadmin": True}
 
 
@@ -45308,7 +45308,7 @@ def force_user_password_change_v828(user_id: int, request: Request) -> dict[str,
     write_app_log("user_force_password_change", "user", user_id, "Changement de mot de passe forcé par le superadmin", request=request)
     return {"status": "ok", "must_change_password": True}
 
-# V8.3.11 : ui-settings accepte les nouvelles clés de style sans les perdre.
+# V8.2.9 : ui-settings accepte les nouvelles clés de style sans les perdre.
 try:
     _remove_api_route_v807("/api/ui-settings", {"GET", "PATCH"})
     _remove_api_route_v807("/api/ui-settings/reset", {"POST"})
@@ -45372,7 +45372,7 @@ V828_FRONTEND_PATCH = r'''
 <script id="v828-script">
 (function(){
   if(window.__clyoV828Patch) return; window.__clyoV828Patch=true;
-  const VERSION='8.3.11';
+  const VERSION='8.2.9';
   const NOTES=[
     'Suppression de la catégorie Mises à jour du menu latéral.',
     'Correction des informations de mise à jour affichées avec la version réellement installée.',
@@ -45468,18 +45468,18 @@ try:
     INDEX_HTML = INDEX_HTML.replace('</body>', V828_FRONTEND_PATCH + '\n</body>')
 except Exception as exc:
     try:
-        safe_log(f"Injection front V8.3.11 impossible : {exc}")
+        safe_log(f"Injection front V8.2.9 impossible : {exc}")
     except Exception:
         pass
 
 try:
-    RELEASE_NOTES.append("V8.3.11 : profils et modèles en modale, suppression Mises à jour, mot de passe libre, apparence des cartes et suppression de la localisation.")
+    RELEASE_NOTES.append("V8.2.9 : profils et modèles en modale, suppression Mises à jour, mot de passe libre, apparence des cartes et suppression de la localisation.")
 except Exception:
     pass
 
-# --- V8.3.11 : refonte Apparence simplifiée et palette moderne ---
+# --- V8.2.9 : refonte Apparence simplifiée et palette moderne ---
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.2.9"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -45586,7 +45586,7 @@ V829_FRONTEND_PATCH = r'''
 (function(){
   if(window.__clyoV829AppearancePatch) return;
   window.__clyoV829AppearancePatch=true;
-  const VERSION='8.3.11';
+  const VERSION='8.2.9';
   const DEFAULTS={theme_mode:'light',primary_color:'#0F4C81',secondary_color:'#38BDF8',ui_density:'comfortable',text_scale:'normal',card_radius:18,font_family:'Inter, Segoe UI, Arial, sans-serif'};
   const PALETTES={
     clyo:{label:'CLYO Bleu',primary:'#0F4C81',secondary:'#38BDF8'},
@@ -45628,12 +45628,12 @@ try:
     INDEX_HTML = INDEX_HTML.replace('</body>', V829_FRONTEND_PATCH + '\n</body>')
 except Exception as exc:
     try:
-        safe_log(f"Injection front V8.3.11 impossible : {exc}")
+        safe_log(f"Injection front V8.2.9 impossible : {exc}")
     except Exception:
         pass
 
 try:
-    RELEASE_NOTES.append("V8.3.11 : refonte Apparence simplifiée, palette moderne et application automatique des couleurs sur toute l’interface.")
+    RELEASE_NOTES.append("V8.2.9 : refonte Apparence simplifiée, palette moderne et application automatique des couleurs sur toute l’interface.")
 except Exception:
     pass
 
@@ -47893,9 +47893,9 @@ try:
 except Exception:
     pass
 
-# --- V8.3.11 : suppression définitive checkbox accès, Apparence pour tous, rôles identifiants et contraste catégories ---
+# --- V8.3.10 : suppression définitive checkbox accès, Apparence pour tous, rôles identifiants et contraste catégories ---
 try:
-    APP_VERSION = "8.3.11"
+    APP_VERSION = "8.3.10"
     app.version = APP_VERSION
 except Exception:
     pass
@@ -47907,7 +47907,7 @@ V8310_RELEASE_NOTES = [
     "Correction du contraste des cartes catégories : texte clair sur fond sombre, comme dans le volet gauche.",
 ]
 try:
-    RELEASE_NOTES[:] = V8310_RELEASE_NOTES + [n for n in RELEASE_NOTES if "8.3.11" not in str(n)]
+    RELEASE_NOTES[:] = V8310_RELEASE_NOTES + [n for n in RELEASE_NOTES if "8.3.10" not in str(n)]
 except Exception:
     pass
 
@@ -48027,7 +48027,7 @@ try:
     ]
     app.add_api_route("/api/auth/me", api_auth_me_v8310, methods=["GET"])
 except Exception as exc:
-    try: safe_log(f"Réenregistrement /api/auth/me V8.3.11 impossible : {exc}")
+    try: safe_log(f"Réenregistrement /api/auth/me V8.3.10 impossible : {exc}")
     except Exception: pass
 
 try:
@@ -48037,7 +48037,7 @@ try:
     ]
     app.add_api_route("/api/users/{user_id}", api_update_user_v8310, methods=["PATCH"])
 except Exception as exc:
-    try: safe_log(f"Réenregistrement PATCH /api/users/{{user_id}} V8.3.11 impossible : {exc}")
+    try: safe_log(f"Réenregistrement PATCH /api/users/{{user_id}} V8.3.10 impossible : {exc}")
     except Exception: pass
 
 V8310_FRONTEND_PATCH = r'''
@@ -48083,7 +48083,7 @@ V8310_FRONTEND_PATCH = r'''
   function removeLegacyCheckboxes(){try{const modal=document.querySelector('.app-modal');if(!modal)return;const title=(modal.textContent||'').toLowerCase();if(title.includes('accès du profil')||modal.getAttribute('data-v8310-access-modal')==='1'){modal.setAttribute('data-v8310-access-modal','1');modal.querySelectorAll('input[type="checkbox"],[data-v833-perm]').forEach(el=>{el.remove();});}}catch(_e){}}
   function luminance(rgb){const m=String(rgb||'').match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);if(!m)return 255;return (Number(m[1])*299+Number(m[2])*587+Number(m[3])*114)/1000;}
   function fixCategoryText(){try{const selectors=['#assets-panel .dashboard-category-head','#assets-panel .asset-category-head','#assets-panel .asset-category-card','#assets-panel .asset-category-card-v7734','#assets-panel .v828-cat-tile','#assets-panel .quick-card[data-category]','#assets-panel .quick-card.category-card','#assets-panel .category-card','#assets-panel .category-tile','#assets-panel .stock-category-card','#assets-panel [data-category-card]','#assets-panel .category-group-card'];document.querySelectorAll(selectors.join(',')).forEach(card=>{const bg=getComputedStyle(card).backgroundColor;const light=luminance(bg)>150;const txt=light?'#0f172a':'#ffffff';const sub=light?'#334155':'#e5e7eb';card.style.setProperty('color',txt,'important');card.querySelectorAll('h1,h2,h3,h4,b,strong,span,div,p,small').forEach(el=>{const t=(el.textContent||'').toLowerCase();el.style.setProperty('color',(t.includes('stock')||t.includes('vendu'))?sub:txt,'important');});});}catch(_e){}}
-  function boot(){forceAppearanceAccess();removeLegacyCheckboxes();fixCategoryText();try{window.RELEASE_NOTES=RELEASE_NOTES.concat((window.RELEASE_NOTES||[]).filter(n=>!String(n).includes('8.3.11')));}catch(_e){}}
+  function boot(){forceAppearanceAccess();removeLegacyCheckboxes();fixCategoryText();try{window.RELEASE_NOTES=RELEASE_NOTES.concat((window.RELEASE_NOTES||[]).filter(n=>!String(n).includes('8.3.10')));}catch(_e){}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();setInterval(boot,300);
 })();
 </script>
@@ -48091,5 +48091,173 @@ V8310_FRONTEND_PATCH = r'''
 try:
     INDEX_HTML = INDEX_HTML.replace('</body>', V8310_FRONTEND_PATCH + '\n</body>')
 except Exception as exc:
-    try: safe_log(f"Injection front V8.3.11 impossible : {exc}")
+    try: safe_log(f"Injection front V8.3.10 impossible : {exc}")
+    except Exception: pass
+
+
+# --- V9 : navigation exclusive, Apparence universelle, Identifiants simplifiés et contraste automatique ---
+try:
+    APP_VERSION = "9.0.0"
+    app.version = APP_VERSION
+except Exception:
+    pass
+
+V9_RELEASE_NOTES = [
+    "Correction de la navigation : un seul module est désormais affiché à la fois.",
+    "L’onglet Apparence est accessible à tous les profils, sans verrou de droits.",
+    "Suppression complète de la fonction Gérer les accès dans Identifiants.",
+    "Contraste automatique des titres et compteurs des cartes catégories dans Stock et Vente.",
+    "Suppression du réglage manuel de couleur du texte des catégories et conservation du thème clair moderne.",
+]
+try:
+    RELEASE_NOTES[:] = V9_RELEASE_NOTES + [n for n in RELEASE_NOTES if "V9" not in str(n) and "9.0.0" not in str(n)]
+except Exception:
+    pass
+
+try:
+    DEFAULT_USER_PERMISSIONS_V833["visual-panel"] = True
+except Exception:
+    pass
+try:
+    DEFAULT_UI_SETTINGS.update({
+        "category_text_auto_contrast": True,
+    })
+except Exception:
+    pass
+
+V9_FRONTEND_PATCH = r'''
+<style id="v9-navigation-appearance-contrast-style">
+  main > section.panel{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;}
+  main > section.panel.active{display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;}
+  main > section.panel.installation-panel-pro.active{display:flex!important;}
+  .nav-item[data-panel="visual-panel"]{display:flex!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;}
+  #visual-panel .superadmin-only{display:initial!important;visibility:visible!important;opacity:1!important;}
+  [data-v9-remove-access],.v9-hidden-access-action{display:none!important;}
+  #uiCategoryTextV837,#uiCategorySubtextV837,#uiCategoryCardText,#uiCategoryCardSubtext{display:none!important;}
+  .v9-auto-contrast-hidden{display:none!important;}
+</style>
+<script id="v9-navigation-appearance-contrast-script">
+(function(){
+  'use strict';
+  const APPEARANCE='visual-panel';
+  const CATEGORY_SELECTOR=[
+    '#stock-panel .asset-category-card-v7734','#vente-panel .asset-category-card-v7734',
+    '#stock-panel .dashboard-category-head','#vente-panel .dashboard-category-head',
+    '#stock-panel .asset-category-head','#vente-panel .asset-category-head',
+    '#stock-panel .category-card','#vente-panel .category-card',
+    '#stock-panel .category-tile','#vente-panel .category-tile',
+    '#stock-panel [data-category-card]','#vente-panel [data-category-card]',
+    '#stock-panel .stock-category-card','#vente-panel .stock-category-card',
+    '#asset-category-panel .asset-category-card-v7734','#asset-category-panel .category-card',
+    '#assets-panel .asset-category-card-v7734','#assets-panel .dashboard-category-head','#assets-panel .asset-category-head'
+  ].join(',');
+  function cssColorToRgb(value){
+    const v=String(value||'').trim();
+    let m=v.match(/^rgba?\(\s*([\d.]+)[, ]+\s*([\d.]+)[, ]+\s*([\d.]+)/i);
+    if(m)return [Number(m[1]),Number(m[2]),Number(m[3])];
+    m=v.match(/^#([0-9a-f]{6})$/i);if(m){const n=parseInt(m[1],16);return [(n>>16)&255,(n>>8)&255,n&255];}
+    m=v.match(/^#([0-9a-f]{3})$/i);if(m)return m[1].split('').map(x=>parseInt(x+x,16));
+    return null;
+  }
+  function relativeLuminance(rgb){
+    if(!rgb)return 1;
+    const c=rgb.map(v=>{v=Math.max(0,Math.min(255,v))/255;return v<=.04045?v/12.92:Math.pow((v+.055)/1.055,2.4);});
+    return .2126*c[0]+.7152*c[1]+.0722*c[2];
+  }
+  function effectiveBackground(el){
+    let node=el;
+    while(node&&node!==document.documentElement){
+      const st=getComputedStyle(node);const bg=st.backgroundColor;const rgb=cssColorToRgb(bg);
+      if(rgb&&bg&&!/rgba\([^)]*,\s*0(?:\.0+)?\s*\)/i.test(bg))return rgb;
+      node=node.parentElement;
+    }
+    return [255,255,255];
+  }
+  function applyAutomaticContrast(root=document){
+    root.querySelectorAll(CATEGORY_SELECTOR).forEach(card=>{
+      const dark=relativeLuminance(effectiveBackground(card))<.42;
+      const title=dark?'#FFFFFF':'#0F172A';
+      const sub=dark?'#E5E7EB':'#334155';
+      card.style.setProperty('color',title,'important');
+      card.dataset.autoContrast=dark?'dark':'light';
+      card.querySelectorAll('h1,h2,h3,h4,h5,b,strong,.asset-category-title-v7734,.dashboard-category-title,.category-title').forEach(el=>el.style.setProperty('color',title,'important'));
+      card.querySelectorAll('small,.asset-category-meta,.dashboard-category-meta,.category-count,.stock-count,[class*="meta"],[class*="count"]').forEach(el=>el.style.setProperty('color',sub,'important'));
+      card.querySelectorAll('.warning,.alert,[class*="warning"],[class*="alert"]').forEach(el=>el.style.setProperty('color','#FBBF24','important'));
+    });
+    document.documentElement.style.setProperty('--clyo-cat-card-text','var(--v9-category-text, #FFFFFF)');
+  }
+  function unlockAppearance(){
+    if(window.currentUser){window.currentUser.module_permissions=window.currentUser.module_permissions||{};window.currentUser.module_permissions[APPEARANCE]=true;}
+    document.querySelectorAll(`[data-panel="${APPEARANCE}"]`).forEach(el=>{el.hidden=false;el.removeAttribute('hidden');el.classList.remove('superadmin-only');el.style.setProperty('display',el.classList.contains('nav-item')?'flex':'','important');el.style.setProperty('visibility','visible','important');el.style.setProperty('opacity','1','important');el.style.setProperty('pointer-events','auto','important');});
+    const panel=document.getElementById(APPEARANCE);if(panel){panel.classList.remove('superadmin-only');panel.querySelectorAll('.superadmin-only').forEach(el=>el.classList.remove('superadmin-only'));}
+  }
+  function activateOnly(panelId){
+    const target=document.getElementById(panelId);
+    if(!target)return false;
+    document.querySelectorAll('main > section.panel').forEach(panel=>{
+      const active=panel.id===panelId;
+      panel.classList.toggle('active',active);
+      panel.classList.remove('v8310-force-visible');
+      panel.style.removeProperty('display');panel.style.removeProperty('visibility');panel.style.removeProperty('opacity');panel.style.removeProperty('pointer-events');
+      panel.hidden=false;
+    });
+    document.querySelectorAll('.nav-item').forEach(nav=>nav.classList.toggle('active',nav.dataset.panel===panelId));
+    window.currentPanel=panelId;
+    return true;
+  }
+  function removeAccessManagement(){
+    document.querySelectorAll('button,a,[role="button"]').forEach(el=>{
+      const text=String(el.textContent||'').trim().toLowerCase();
+      if(text.includes('gérer les accès')||text.includes('gerer les acces')||text==='autorisé'||text==='autorise'||text==='bloqué'||text==='bloque'){
+        const modal=el.closest('.app-modal');
+        if(text.includes('accès')||text.includes('acces')||modal?.getAttribute('data-v8310-access-modal')==='1')el.remove();
+      }
+    });
+    document.querySelectorAll('.app-modal[data-v8310-access-modal="1"]').forEach(el=>el.remove());
+  }
+  function removeManualCategoryTextControls(){
+    ['uiCategoryTextV837','uiCategorySubtextV837','uiCategoryCardText','uiCategoryCardSubtext'].forEach(id=>{
+      const input=document.getElementById(id);if(!input)return;const wrap=input.closest('.v829-color-control')?.parentElement||input.closest('label')?.parentElement||input.parentElement; if(wrap){wrap.classList.add('v9-auto-contrast-hidden');wrap.remove();}else input.remove();
+    });
+    document.querySelectorAll('#visual-panel label,#visual-panel .v837-live-hint').forEach(el=>{const t=String(el.textContent||'').toLowerCase();if(t.includes('texte des catégories')||t.includes('couleur du texte des catégories')||t.includes('compteur / sous-texte catégories')){const wrap=el.closest('.card,.form-group,.field,.setting-row')||el.parentElement;wrap?.remove();}});
+  }
+  const originalShow=window.showPanel;
+  window.showPanel=function(panelId){
+    unlockAppearance();
+    let result;
+    if(typeof originalShow==='function'){
+      try{result=originalShow.apply(this,arguments);}catch(_e){}
+    }
+    activateOnly(panelId);
+    if(panelId===APPEARANCE&&typeof window.loadUiSettings==='function')setTimeout(()=>{try{window.loadUiSettings();}catch(_e){}},20);
+    setTimeout(()=>{activateOnly(panelId);removeAccessManagement();removeManualCategoryTextControls();applyAutomaticContrast();},40);
+    return result;
+  };
+  window.openUserPermissionsModalV833=function(){if(typeof window.showMessage==='function')window.showMessage('La gestion des accès par profil a été supprimée.','info');};
+  window.saveUserPermissionsV833=async function(){};
+  window.saveUserPermissionsV8310=async function(){};
+  const oldUserAction=window.openUserActionModalV828;
+  window.openUserActionModalV828=function(id){
+    if(typeof oldUserAction==='function')oldUserAction.apply(this,arguments);
+    setTimeout(removeAccessManagement,0);setTimeout(removeAccessManagement,50);
+  };
+  const oldApply=window.applyModulePermissions;
+  window.applyModulePermissions=function(){if(typeof oldApply==='function')oldApply.apply(this,arguments);unlockAppearance();};
+  function normalizeSettings(){
+    const s=window.currentUiSettings||{};s.category_text_auto_contrast=true;delete s.category_card_text_color;delete s.category_card_subtext_color;window.currentUiSettings=s;
+  }
+  const oldSave=window.saveUiSettings;
+  if(typeof oldSave==='function')window.saveUiSettings=async function(){normalizeSettings();const r=await oldSave.apply(this,arguments);normalizeSettings();applyAutomaticContrast();return r;};
+  function boot(){unlockAppearance();removeAccessManagement();removeManualCategoryTextControls();normalizeSettings();applyAutomaticContrast();const active=document.querySelector('main > section.panel.active');if(active)activateOnly(active.id);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+  const obs=new MutationObserver(()=>{unlockAppearance();removeAccessManagement();removeManualCategoryTextControls();applyAutomaticContrast();});
+  obs.observe(document.documentElement,{subtree:true,childList:true});
+  setInterval(()=>{const active=document.querySelector('main > section.panel.active');if(active)activateOnly(active.id);applyAutomaticContrast();},700);
+})();
+</script>
+'''
+try:
+    INDEX_HTML = INDEX_HTML.replace('</body>', V9_FRONTEND_PATCH + '\n</body>')
+except Exception as exc:
+    try: safe_log(f"Injection front V9 impossible : {exc}")
     except Exception: pass

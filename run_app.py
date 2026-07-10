@@ -366,7 +366,7 @@ def main() -> None:
     browser_url = f"http://127.0.0.1:{port}"
 
     safe_print("=" * 68)
-    safe_print("CLYO Stock Atelier V8.3.10")
+    safe_print("CLYO Stock Atelier V9")
     safe_print("=" * 68)
     safe_print(f"Application locale : {browser_url}")
     if host == "0.0.0.0":
