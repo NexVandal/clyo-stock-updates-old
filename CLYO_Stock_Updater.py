@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-CLYO Stock Atelier - Updater Python natif V8.3.11
+CLYO Stock Atelier - Updater Python natif V8.2.9
 Runner propre / anti-fichiers verrouillés / anti-processus bloquants.
 
 Objectif : ne plus dépendre de PowerShell/CMD et éviter les mises à jour bloquées
@@ -27,7 +27,7 @@ from pathlib import Path
 APP_URL = "http://127.0.0.1:8080/"
 APP_HOST = "127.0.0.1"
 APP_PORT = 8080
-UPDATER_VERSION = "8.3.11"
+UPDATER_VERSION = "8.2.9"
 
 PROTECTED_NAMES = {
     "NexVandal", "data", "backups", "archives", "qr_codes", "product_images",
@@ -71,7 +71,7 @@ class Ui:
             self.tk = tk
             self.ttk = ttk
             self.root = tk.Tk()
-            self.root.title("Mise à jour CLYO Stock Atelier - Updater V8.3.11")
+            self.root.title("Mise à jour CLYO Stock Atelier - Updater V8.2.9")
             self.root.geometry("820x560")
             self.root.configure(bg="#0f172a")
             self.root.protocol("WM_DELETE_WINDOW", lambda: None)
@@ -79,7 +79,7 @@ class Ui:
             frame = tk.Frame(self.root, bg="#0f172a", padx=24, pady=22)
             frame.pack(fill="both", expand=True)
             tk.Label(frame, text="Mise à jour CLYO Stock Atelier", fg="#ffffff", bg="#0f172a", font=("Segoe UI", 20, "bold")).pack(anchor="w")
-            tk.Label(frame, text="Updater Python natif V8.3.11 — runner propre", fg="#93c5fd", bg="#0f172a", font=("Segoe UI", 10, "bold")).pack(anchor="w", pady=(4, 16))
+            tk.Label(frame, text="Updater Python natif V8.2.9 — runner propre", fg="#93c5fd", bg="#0f172a", font=("Segoe UI", 10, "bold")).pack(anchor="w", pady=(4, 16))
             self.status = tk.Label(frame, text="Préparation...", fg="#e5e7eb", bg="#0f172a", font=("Segoe UI", 11, "bold"))
             self.status.pack(anchor="w", pady=(0, 8))
             self.percent_var = tk.DoubleVar(value=0)
@@ -706,7 +706,7 @@ def main() -> int:
             "skipped_files": skipped,
             "blocked_files": blocked[:80],
             "backup_folder": str(backup_root),
-            "message": "Mise à jour installée via Updater Python natif V8.3.11 runner propre anti-fichiers verrouillés.",
+            "message": "Mise à jour installée via Updater Python natif V8.2.9 runner propre anti-fichiers verrouillés.",
         })
         relaunch(app_dir, args.current_exe, ui, log_path)
         final_msg = "Mise à jour terminée."

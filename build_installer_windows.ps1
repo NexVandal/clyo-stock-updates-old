@@ -1,6 +1,7 @@
 $ErrorActionPreference = "Stop"
+
 $Root = Split-Path -Parent $MyInvocation.MyCommand.Path
-$Version = if ($env:CLYO_STOCK_VERSION) { $env:CLYO_STOCK_VERSION.Trim() } else { "8.3.11" }
+$Version = if ($env:CLYO_STOCK_VERSION) { $env:CLYO_STOCK_VERSION.Trim() } else { "9.0.0" }
 $PortableDir = Join-Path $Root "dist\CLYO_Stock_PORTABLE"
 $InstallerDir = Join-Path $Root "dist\installer"
 $InstallerExe = Join-Path $InstallerDir "CLYO_Stock_Atelier_Setup_$Version.exe"
