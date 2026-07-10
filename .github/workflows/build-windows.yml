@@ -1,0 +1,36 @@
+name: Build Windows de test
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version à compiler (ex. 8.3.11)"
+        required: true
+        default: "8.3.11"
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+      - name: Installer Inno Setup
+        shell: powershell
+        run: choco install innosetup --yes --no-progress
+      - name: Compiler l'installateur
+        shell: powershell
+        env:
+          CLYO_STOCK_VERSION: ${{ inputs.version }}
+        run: .\build_installer_windows.ps1
+      - name: Publier l'artefact de test
+        uses: actions/upload-artifact@v4
+        with:
+          name: CLYO-Stock-Atelier-${{ inputs.version }}-Windows
+          path: dist/installer/CLYO_Stock_Atelier_Setup_${{ inputs.version }}.exe
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,12 @@
+{
+  "latest_version": "8.3.11",
+  "installer_url": "https://github.com/NexVandal/clyo-stock-updates-2/releases/download/v8.3.11/CLYO_Stock_Atelier_Setup_8.3.11.exe",
+  "asset_type": "installer_exe",
+  "mandatory": false,
+  "changelog": [
+    "Test V8.3.11 : Suppression définitive des zones à cocher dans Identifiants > Gérer les accès : remplacement par boutons AUTORISÉ / BLOQUÉ.",
+    "Test V8.3.11 : Suppression complète du verrou Superadmin sur Apparence : l’onglet est visible et ouvrable par tous les profils.",
+    "Test V8.3.11 : Correction du changement de rôle d’un identifiant : l’endpoint /api/users/{id} reçoit correctement la requête.",
+    "Test V8.3.11 : Correction du contraste des cartes catégories : texte clair sur fond sombre, comme dans le volet gauche."
+  ]
+}

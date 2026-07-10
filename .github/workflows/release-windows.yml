@@ -1,0 +1,64 @@
+name: Publication Windows officielle
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  release:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+      - name: Extraire la version du tag
+        id: version
+        shell: powershell
+        run: |
+          $v = "${{ github.ref_name }}" -replace '^v',''
+          "value=$v" >> $env:GITHUB_OUTPUT
+      - name: Installer Inno Setup
+        shell: powershell
+        run: choco install innosetup --yes --no-progress
+      - name: Compiler et valider
+        shell: powershell
+        env:
+          CLYO_STOCK_VERSION: ${{ steps.version.outputs.value }}
+        run: .\build_installer_windows.ps1
+      - name: Générer version.json
+        shell: powershell
+        env:
+          VERSION: ${{ steps.version.outputs.value }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          .\.venv\Scripts\python.exe generate_manifest.py --version "$env:VERSION" --installer "dist\installer\CLYO_Stock_Atelier_Setup_$env:VERSION.exe" --repository "$env:REPOSITORY" --changelog "Publication automatique de CLYO Stock Atelier $env:VERSION."
+      - name: Créer la Release GitHub
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.value }}
+        run: |
+          gh release create "v$env:VERSION" "dist\installer\CLYO_Stock_Atelier_Setup_$env:VERSION.exe" --title "CLYO Stock Atelier $env:VERSION" --generate-notes
+      - name: Mettre à jour le manifeste sur main
+        shell: powershell
+        env:
+          VERSION: ${{ steps.version.outputs.value }}
+        run: |
+          Copy-Item version.json "$env:RUNNER_TEMP\version.json" -Force
+          git switch main
+          Copy-Item "$env:RUNNER_TEMP\version.json" version.json -Force
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add version.json
+          git diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) {
+            git commit -m "Publication automatique v$env:VERSION"
+            git push origin main
+          }
